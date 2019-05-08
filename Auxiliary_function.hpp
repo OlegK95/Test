@@ -178,12 +178,19 @@ bool Find_intersection(const std::map<std::string, My_polygon> & poligon_map, My
 									old_pg_point.x, old_pg_point.y, pg_point.x, pg_point.y,
 									tmp.x, tmp.y) != 0)
 								{
-									tmp.tm = (POINT_NOMBER)(old_pl_point.tm + (it->tm - old_pl_point.tm)*((old_pg_point.x - tmp.x) / (old_pg_point.x - it->x)));
+
+								//	POINT_TYPE dx_l = old_pl_point.x - cur_pl_point.x;
+								//	POINT_TYPE dy_l = old_pl_point.y - cur_pl_point.y;
+								//	POINT_TYPE dx_s = old_pl_point.x - tmp.x;
+								//	POINT_TYPE dy_s = old_pl_point.y - tmp.y;
+									tmp.tm = (POINT_NOMBER)(cur_pl_point.tm - old_pl_point.tm) * boost::geometry::distance(old_pl_point, tmp) / boost::geometry::distance(old_pl_point, cur_pl_point)  + old_pl_point.tm;
+
+									//tmp.tm = (POINT_NOMBER)(old_pl_point.tm + (it->tm - old_pl_point.tm)*((old_pg_point.x - tmp.x) / (old_pg_point.x - it->x)));
 									tmp.is_in = boost::geometry::within(old_pl_point, kv.second) ? 1 : 0;
 
 									tmp.pl_nm = p_line.get_name();
 									tmp.pl_x_b = old_pl_point.x; tmp.pl_y_b = old_pl_point.y; tmp.pl_tm_b = old_pl_point.tm; tmp.pl_id_b = old_pl_point.id;
-									tmp.pl_x_e = it->x;		  tmp.pl_y_e = it->y;			tmp.pl_tm_e = it->tm; 		   tmp.pl_id_e = it->id;
+									tmp.pl_x_e = cur_pl_point.x; tmp.pl_y_e = cur_pl_point.y; tmp.pl_tm_e = cur_pl_point.tm; tmp.pl_id_e = cur_pl_point.id;
 
 									tmp.pg_nm = pg->get_name();
 									tmp.pg_x_b = old_pg_point.x; tmp.pg_y_b = old_pg_point.y; tmp.pg_id_b = old_pg_point.id;
