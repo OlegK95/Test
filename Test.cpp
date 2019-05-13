@@ -40,21 +40,21 @@ typedef unsigned short int POINT_NOMBER;
 typedef unsigned short int POINT_ID;
 #define  INPUT_POLYGON_INTERSECT_CONTROL
 
-#include "Polygon_Point.hpp"
-#include "My_polygon.hpp"
+#include "polygon_point.hpp"
+#include "my_polygon.hpp"
 
-#include "Polyline_Point_template.hpp"
-#include "My_Polyline_template.hpp"
+#include "polyline_point_template.hpp"
+#include "my_polyline_template.hpp"
 
-#include "My_Segment_custom.hpp"
+#include "my_segment_custom.hpp"
 
-#include "Text_polygon_polyline.hpp"
+#include "text_polygon_polyline.hpp"
 
-#include "Intersect_Point_template.hpp"
+#include "intersect_point_template.hpp"
 
-#include  "Intersection_algoritm.hpp"
+#include  "intersection_algoritm.hpp"
 
-#include  "Auxiliary_function.hpp"
+#include  "auxiliary_function.hpp"
 
 
 using namespace boost::property_tree;
