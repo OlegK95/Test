@@ -3,7 +3,7 @@
 
 #include  "polyline_point_template.hpp"
 #include  "polygon_point.hpp"
-#include  "pntersect_point_template.hpp"
+#include  "intersect_point_template.hpp"
 #include  "intersection_algoritm.hpp"
 #include  "my_segment_custom.hpp"
 
